@@ -1,2 +1,6 @@
-<manifest
-        package="bru.oliveir.master"/>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="bru.oliveir.master">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+</manifest>

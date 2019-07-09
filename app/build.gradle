@@ -6,9 +6,15 @@ android {
         applicationId ApplicationId.id
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+    dataBinding {
+        enabled true
+    }
 }
 
 dependencies {
+    implementation project(Modules.local)
+    implementation project(Modules.repository)
     implementation project(Modules.featureMaster)
     implementation Libraries.koin
+    implementation AndroidLibraries.appCompat
 }

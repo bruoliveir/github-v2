@@ -1,9 +1,16 @@
 apply plugin: 'com.android.library'
 apply from: '../../android_commons.gradle'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
+    implementation project(Modules.repository)
     implementation Libraries.koin
+    implementation Libraries.koinViewModel
     implementation AndroidLibraries.appCompat
+    implementation AndroidLibraries.lifecycleViewModel
+    implementation AndroidLibraries.recyclerView
+    implementation AndroidLibraries.constraintLayout
+    kapt AndroidLibraries.dataBinding
     testImplementation TestLibraries.junit
     androidTestImplementation TestLibraries.androidTestRunner
     androidTestImplementation TestLibraries.espresso

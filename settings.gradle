@@ -1,1 +1,1 @@
-include ':app', ':features:master'
+include ':app', ':data:model', ':data:local', ':data:repository', ':features:master'
