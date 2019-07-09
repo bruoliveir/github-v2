@@ -5,6 +5,7 @@ object ApplicationId {
 object Modules {
     const val model = ":data:model"
     const val local = ":data:local"
+    const val remote = ":data:remote"
     const val repository = ":data:repository"
     const val featureMaster = ":features:master"
 }
@@ -27,6 +28,10 @@ object Versions {
     const val recyclerView = "1.0.0"
     const val constraintLayout = "1.1.3"
     const val dataBinding = "3.4.1"
+    const val gson = "2.8.5"
+    const val retrofit = "2.6.0"
+    const val retrofitGson = "2.4.0"
+    const val okHttp = "3.12.1"
 }
 
 object Releases {
@@ -49,6 +54,11 @@ object Libraries {
     const val roomCompiler = "androidx.room:room-compiler:${Versions.room}"
     const val roomRunTime = "androidx.room:room-runtime:${Versions.room}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.room}"
+    // Retrofit
+    const val gson = "com.google.code.gson:gson:${Versions.gson}"
+    const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
+    const val retrofitGsonConverter = "com.squareup.retrofit2:converter-gson:${Versions.retrofitGson}"
+    const val httpLoggingInterceptor = "com.squareup.okhttp3:logging-interceptor:${Versions.okHttp}"
 }
 
 object AndroidLibraries {

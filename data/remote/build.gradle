@@ -1,0 +1,12 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation project(Modules.model)
+    implementation KotlinLibraries.kotlin
+    implementation Libraries.koin
+    implementation Libraries.gson
+    implementation Libraries.retrofit
+    implementation Libraries.retrofitGsonConverter
+    implementation Libraries.httpLoggingInterceptor
+    testImplementation TestLibraries.junit
+}

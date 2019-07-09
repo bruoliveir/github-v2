@@ -8,7 +8,6 @@ import bru.oliveir.master.domain.GetAllItemsUseCase
 import bru.oliveir.model.Item
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class MasterViewModel(private val getAllItemsUseCase: GetAllItemsUseCase) : ViewModel() {
 
@@ -21,11 +20,10 @@ class MasterViewModel(private val getAllItemsUseCase: GetAllItemsUseCase) : View
 
     fun userClicksOnItem(item: Item) {
         println("userClicksOnItem ${item.id}")
+        getAllItems(true)
     }
 
-    private fun getAllItems() {
-        viewModelScope.launch(Dispatchers.Main) {
-            _items.value = withContext(Dispatchers.IO) { getAllItemsUseCase() }
-        }
+    private fun getAllItems(refresh: Boolean = false) {
+        viewModelScope.launch(Dispatchers.IO) { _items.postValue(getAllItemsUseCase(refresh)) }
     }
 }
