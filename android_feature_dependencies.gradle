@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+apply from: '../../android_commons.gradle'
+
+dependencies {
+    implementation Libraries.koin
+    implementation AndroidLibraries.appCompat
+    testImplementation TestLibraries.junit
+    androidTestImplementation TestLibraries.androidTestRunner
+    androidTestImplementation TestLibraries.espresso
+}
