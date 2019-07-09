@@ -7,3 +7,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 }
+
+dependencies {
+    implementation Libraries.koin
+}

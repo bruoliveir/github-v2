@@ -8,6 +8,7 @@ object Versions {
     val targetSdk = 29
     val gradle = "3.4.1"
     val kotlin = "1.3.41"
+    val koin = "2.0.1"
 }
 
 object Releases {
@@ -17,4 +18,8 @@ object Releases {
 
 object KotlinLibraries {
     val kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
+}
+
+object Libraries {
+    val koin = "org.koin:koin-android:${Versions.koin}"
 }
