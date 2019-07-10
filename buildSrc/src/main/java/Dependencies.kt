@@ -7,7 +7,10 @@ object Modules {
     const val local = ":data:local"
     const val remote = ":data:remote"
     const val repository = ":data:repository"
+    const val navigation = ":navigation"
+    const val common = ":common"
     const val featureMaster = ":features:master"
+    const val featureDetail = ":features:detail"
 }
 
 object Versions {
@@ -32,6 +35,7 @@ object Versions {
     const val retrofit = "2.6.0"
     const val retrofitGson = "2.4.0"
     const val okHttp = "3.12.1"
+    const val navigation = "2.1.0-alpha06"
 }
 
 object Releases {
@@ -71,6 +75,8 @@ object AndroidLibraries {
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerView}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}"
     const val dataBinding = "androidx.databinding:databinding-compiler:${Versions.dataBinding}"
+    const val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.navigation}"
+    const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}"
 }
 
 object TestLibraries {

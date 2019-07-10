@@ -1,6 +1,7 @@
 package bru.oliveir.playground
 
 import android.app.Application
+import bru.oliveir.detail.di.featureDetailModule
 import bru.oliveir.local.di.localModule
 import bru.oliveir.master.di.featureMasterModule
 import bru.oliveir.remote.di.remoteModule
@@ -17,7 +18,7 @@ class App : Application() {
     private fun configureDi() {
         startKoin {
             androidContext(this@App)
-            modules(listOf(localModule, remoteModule, repositoryModule, featureMasterModule))
+            modules(listOf(localModule, remoteModule, repositoryModule, featureMasterModule, featureDetailModule))
         }
     }
 }

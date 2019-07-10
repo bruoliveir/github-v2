@@ -4,12 +4,16 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation project(Modules.repository)
+    implementation project(Modules.navigation)
+    implementation project(Modules.common)
     implementation Libraries.koin
     implementation Libraries.koinViewModel
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.lifecycleViewModel
     implementation AndroidLibraries.recyclerView
     implementation AndroidLibraries.constraintLayout
+    implementation AndroidLibraries.navigation
+    implementation AndroidLibraries.navigationFragment
     kapt AndroidLibraries.dataBinding
     testImplementation TestLibraries.junit
     androidTestImplementation TestLibraries.androidTestRunner
