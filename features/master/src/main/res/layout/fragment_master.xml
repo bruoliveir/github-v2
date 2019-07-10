@@ -10,19 +10,27 @@
             type="bru.oliveir.master.MasterViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MasterFragment">
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:showWhenLoading="@{viewModel.items}"
+        app:onRefreshListener="@{() -> viewModel.userSwipesToRefresh()}">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvMaster"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:items="@{viewModel.items}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/view_master_list_item" />
+            tools:context=".MasterFragment">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMaster"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:items="@{viewModel.items}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/view_master_list_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
 </layout>
