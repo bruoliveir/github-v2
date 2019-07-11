@@ -1,4 +1,4 @@
-package bru.oliveir.common
+package bru.oliveir.common.base
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,13 +6,16 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import bru.oliveir.common.extensions.setupSnackbar
 import bru.oliveir.navigation.NavigationCommand
+import com.google.android.material.snackbar.Snackbar
 
 abstract class BaseFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         observeNavigation(getViewModel())
+        setupSnackbar(this, getViewModel().snackBarError, Snackbar.LENGTH_LONG)
     }
 
     abstract fun getViewModel(): BaseViewModel

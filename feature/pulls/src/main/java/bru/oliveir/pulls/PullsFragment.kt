@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
-import bru.oliveir.common.BaseFragment
-import bru.oliveir.common.BaseViewModel
+import bru.oliveir.common.base.BaseFragment
+import bru.oliveir.common.base.BaseViewModel
 import bru.oliveir.pulls.databinding.FragmentPullsBinding
 import bru.oliveir.pulls.views.PullsAdapter
 import org.koin.android.viewmodel.ext.android.viewModel

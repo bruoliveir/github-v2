@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import bru.oliveir.common.BaseFragment
-import bru.oliveir.common.BaseViewModel
+import bru.oliveir.common.base.BaseFragment
+import bru.oliveir.common.base.BaseViewModel
 import bru.oliveir.repositories.databinding.FragmentRepositoriesBinding
 import bru.oliveir.repositories.views.RepositoriesAdapter
 import org.koin.android.viewmodel.ext.android.viewModel

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="repositories_stars_forks">%d stars • %d forks</string>
+    <string name="repositories_error">Unable to get repositories.</string>
 </resources>

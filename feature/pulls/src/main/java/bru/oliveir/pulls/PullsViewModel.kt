@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import bru.oliveir.common.BaseViewModel
+import bru.oliveir.common.Event
+import bru.oliveir.common.base.BaseViewModel
 import bru.oliveir.model.Pull
 import bru.oliveir.pulls.domain.GetPullsByRepositoryUseCase
 import bru.oliveir.repository.util.Resource
@@ -37,6 +38,7 @@ class PullsViewModel(private val getPullsByRepositoryUseCase: GetPullsByReposito
             withContext(Dispatchers.IO) { pullsSource = getPullsByRepositoryUseCase(refresh, ownerLogin, repoName) }
             _pulls.addSource(pullsSource) {
                 _pulls.value = it
+                if (it.status == Resource.Status.ERROR) _snackbarError.value = Event(R.string.pulls_error)
             }
         }
     }

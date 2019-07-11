@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import bru.oliveir.common.BaseViewModel
+import bru.oliveir.common.Event
+import bru.oliveir.common.base.BaseViewModel
 import bru.oliveir.model.Repository
 import bru.oliveir.repositories.domain.GetJavaRepositoriesUseCase
 import bru.oliveir.repository.util.Resource
@@ -41,6 +42,7 @@ class RepositoriesViewModel(private val getJavaRepositoriesUseCase: GetJavaRepos
             withContext(Dispatchers.IO) { repositorySource = getJavaRepositoriesUseCase(refresh) }
             _repositories.addSource(repositorySource) {
                 _repositories.value = it
+                if (it.status == Resource.Status.ERROR) _snackbarError.value = Event(R.string.repositories_error)
             }
         }
     }
