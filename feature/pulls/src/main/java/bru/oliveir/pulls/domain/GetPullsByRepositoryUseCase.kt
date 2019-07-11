@@ -4,5 +4,5 @@ import bru.oliveir.repository.RepositoryRepository
 
 class GetPullsByRepositoryUseCase(private val repository: RepositoryRepository) {
     suspend operator fun invoke(forceRefresh: Boolean = false, ownerLogin: String, repoName: String) =
-        repository.getPullsByRepository(forceRefresh, ownerLogin, repoName)
+        repository.getPullsByRepositoryWithCache(forceRefresh, ownerLogin, repoName)
 }

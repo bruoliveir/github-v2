@@ -1,6 +1,7 @@
 package bru.oliveir.repositories
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import bru.oliveir.common.BaseViewModel
@@ -9,14 +10,16 @@ import bru.oliveir.repositories.domain.GetJavaRepositoriesUseCase
 import bru.oliveir.repository.util.Resource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class RepositoriesViewModel(private val getJavaRepositoriesUseCase: GetJavaRepositoriesUseCase) : BaseViewModel() {
 
-    private var _repositories = MutableLiveData<Resource<List<Repository>>>()
+    private var _repositories = MediatorLiveData<Resource<List<Repository>>>()
+    private var repositorySource: LiveData<Resource<List<Repository>>> = MutableLiveData()
     val repositories: LiveData<Resource<List<Repository>>> = _repositories
 
     init {
-        getRepositories(true)
+        getRepositories()
     }
 
     fun userClicksOnRepository(repository: Repository) {
@@ -33,6 +36,12 @@ class RepositoriesViewModel(private val getJavaRepositoriesUseCase: GetJavaRepos
     }
 
     private fun getRepositories(refresh: Boolean = false) {
-        viewModelScope.launch(Dispatchers.IO) { _repositories.postValue(getJavaRepositoriesUseCase(refresh)) }
+        viewModelScope.launch(Dispatchers.Main) {
+            _repositories.removeSource(repositorySource)
+            withContext(Dispatchers.IO) { repositorySource = getJavaRepositoriesUseCase(refresh) }
+            _repositories.addSource(repositorySource) {
+                _repositories.value = it
+            }
+        }
     }
 }
