@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_pulls"
+    app:startDestination="@id/fPulls">
+
+    <fragment
+        android:id="@+id/fPulls"
+        android:name="bru.oliveir.pulls.PullsFragment"
+        android:label="Pull Requests">
+        <argument
+            android:name="repoName"
+            app:argType="string" />
+        <argument
+            android:name="ownerLogin"
+            app:argType="string" />
+    </fragment>
+
+</navigation>

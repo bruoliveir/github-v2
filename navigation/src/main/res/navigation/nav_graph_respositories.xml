@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_repositories"
+    app:startDestination="@id/fRepositories">
+
+    <fragment
+        android:id="@+id/fRepositories"
+        android:name="bru.oliveir.repositories.RepositoriesFragment"
+        android:label="Repositories">
+
+        <action
+            android:id="@+id/action_repositories_to_pulls"
+            app:destination="@id/nav_graph_pulls"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="repoName"
+                app:argType="string" />
+            <argument
+                android:name="ownerLogin"
+                app:argType="string" />
+        </action>
+
+    </fragment>
+
+    <include app:graph="@navigation/nav_graph_pulls" />
+
+</navigation>

@@ -16,8 +16,8 @@ dependencies {
     implementation project(Modules.remote)
     implementation project(Modules.repository)
     implementation project(Modules.navigation)
-    implementation project(Modules.featureMaster)
-    implementation project(Modules.featureDetail)
+    implementation project(Modules.featureRepositories)
+    implementation project(Modules.featurePulls)
     implementation Libraries.koin
     implementation AndroidLibraries.appCompat
     implementation AndroidLibraries.navigation

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="pull"
+            type="bru.oliveir.model.Pull" />
+
+        <variable
+            name="viewModel"
+            type="bru.oliveir.pulls.PullsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="@dimen/default_margin">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            app:imageUrl="@{pull.owner.avatarUrl}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginBottom="6dp"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="3dp"
+            android:lines="3"
+            android:text="@{pull.title}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@tools:sample/lorem/random" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

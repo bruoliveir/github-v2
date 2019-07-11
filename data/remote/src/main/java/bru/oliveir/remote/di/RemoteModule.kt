@@ -1,6 +1,6 @@
 package bru.oliveir.remote.di
 
-import bru.oliveir.remote.ItemService
+import bru.oliveir.remote.RepositoryService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -20,5 +20,5 @@ val remoteModule = module {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    factory { get<Retrofit>().create(ItemService::class.java) }
+    factory { get<Retrofit>().create(RepositoryService::class.java) }
 }

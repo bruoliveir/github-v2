@@ -9,8 +9,8 @@ object Modules {
     const val repository = ":data:repository"
     const val navigation = ":navigation"
     const val common = ":common"
-    const val featureMaster = ":features:master"
-    const val featureDetail = ":features:detail"
+    const val featureRepositories = ":features:repositories"
+    const val featurePulls = ":features:pulls"
 }
 
 object Versions {
