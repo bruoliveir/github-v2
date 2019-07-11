@@ -53,7 +53,10 @@ class RepositoryRepositoryImpl(
             withContext(Dispatchers.IO) {
                 status = Resource.Status.LOADING
                 repositoryService.fetchPullsByRepository(ownerLogin, repoName)
+                    .filterNot { it.user == null }
                     .forEach {
+                        userDao.insert(it.user!!)
+                        it.userId = it.user!!.userId
                         it.repositoryId = repositoryId
                         pullDao.insert(it)
                     }
@@ -61,7 +64,7 @@ class RepositoryRepositoryImpl(
             }
         }
         val data = pullDao.getByRepositoryId(repositoryId).map {
-            it.apply { owner = userDao.getByLogin(ownerLogin)[0] }
+            it.apply { user = userDao.getById(it.userId)[0] }
         }
         return Resource(status, data, null)
     }

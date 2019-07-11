@@ -1,5 +1,5 @@
 object ApplicationId {
-    const val id = "bru.oliveir.playground"
+    const val id = "bru.oliveir.github_v2"
 }
 
 object Modules {
@@ -9,15 +9,15 @@ object Modules {
     const val repository = ":data:repository"
     const val navigation = ":navigation"
     const val common = ":common"
-    const val featureRepositories = ":features:repositories"
-    const val featurePulls = ":features:pulls"
+    const val featureRepositories = ":feature:repositories"
+    const val featurePulls = ":feature:pulls"
 }
 
 object Versions {
     const val compileSdk = 29
     const val minSdk = 21
     const val targetSdk = 29
-    const val gradle = "3.4.1"
+    const val gradle = "3.4.2"
     const val kotlin = "1.3.41"
     const val koin = "2.0.1"
     const val junit = "4.12"
@@ -30,7 +30,7 @@ object Versions {
     const val lifecycle = "2.2.0-alpha02"
     const val recyclerView = "1.0.0"
     const val constraintLayout = "1.1.3"
-    const val dataBinding = "3.4.1"
+    const val dataBinding = "3.4.2"
     const val gson = "2.8.5"
     const val retrofit = "2.6.0"
     const val retrofitGson = "2.4.0"

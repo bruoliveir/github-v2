@@ -13,7 +13,4 @@ abstract class UserDao {
 
     @Query("SELECT * FROM User WHERE userId = :id")
     abstract suspend fun getById(id: Int): List<User>
-
-    @Query("SELECT * FROM User WHERE login = :login")
-    abstract suspend fun getByLogin(login: String): List<User>
 }
